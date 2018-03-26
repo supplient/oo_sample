@@ -1,0 +1,226 @@
+#0 Standard
+(FR, 1, UP, 0) 
+(ER, 10,0 ) 
+(ER, 4, 2) 
+(FR, 4, DOWN, 2) 
+(FR, 4, UP, 3) 
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,4,2]/(4,UP,2.5)
+[ER,10,0]/(10,UP,6.5)
+[FR,4,DOWN,2]/(4,DOWN,10.5)
+[FR,4,UP,3]/(4,STILL,12.5)
+
+#1 Random String
+F@cking OO
+INVALID [F@cking OO]
+I want gaming!
+INVALID [I want gaming!]
+RUN
+
+#2 First Cmd is not (FR,1,UP,0)
+(ER,2,0)
+INVALID [(ER,2,0)]
+(FR, 1, UP, 0) 
+(ER, 10,0 ) 
+(ER, 4, 2) 
+(FR, 4, DOWN, 2) 
+(FR, 4, UP, 3) 
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,4,2]/(4,UP,2.5)
+[ER,10,0]/(10,UP,6.5)
+[FR,4,DOWN,2]/(4,DOWN,10.5)
+[FR,4,UP,3]/(4,STILL,12.5)
+
+#3 No Take- Floor r.n<=e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(FR, 3, UP, 2)
+(FR, 4, UP, 4)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10,0]/(10,UP,5.5)
+[FR,3,UP,2]/(3,DOWN,10.0)
+[FR,4,UP,4]/(4,UP,11.5)
+
+#4 Take- Floor r.n > e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(FR, 8, UP, 3)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[FR,8,UP,3]/(8,UP,4.5)
+[ER,10,0]/(10,UP,6.5)
+
+#5 No Take- Floor r.n > e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(FR, 8, DOWN, 3)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10,0]/(10,UP,5.5)
+[FR,8,DOWN, ]/(8,DOWN,7.5)
+
+#6 No Take- Lift r.n <= e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 3, 3)
+(ER, 5, 3)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10,0]/(10,UP,5.5)
+[ER,5,3]/(5,DOWN,9.0)
+[ER,3,3]/(3,DOWN,11.0)
+
+#7 Take- Lift r.n > e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 8, 3)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,8,3]/(8,UP,4.5)
+[ER,10,0]/(10,UP,6.5)
+
+#8 No Take- Floor r.n >= e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 1, 10)
+(FR, 8, DOWN, 12)
+(FR, 6, UP, 12)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10,0]/(10,UP,5.5)
+[ER,1,10]/(1,DOWN,14.5)
+[FR,6,UP,12]/(6,UP,18.0)
+[FR,8,DOWN,12]/(8,UP,20.0)
+
+#9 Take- Floor r.n < e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 1, 10)
+(FR, 4, DOWN, 12)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10,0]/(10,UP,5.5)
+[FR,4,DOWN,12]/(4,DOWN,13.0)
+[ER,1,10]/(1,DOWN,15.5)
+
+#10 No Take- Floor r.n < e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 1, 10)
+(FR, 4, UP, 12)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10, 0]/(10,UP,5.5)
+[ER,1,10]/(1,DOWN,14.5)
+[FR,4,UP,12]/(4,UP,17.0)
+
+#11 No Take- Lift r.n >= e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 1, 10)
+(ER, 8, 12)
+(ER, 4, 13)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10,0]/(10,UP,5.5)
+[ER,1,10]/(1,DOWN,14.5)
+[ER,4,13]/(4,UP,17.0)
+[ER,8,12]/(8,UP,20.0)
+
+#12 Take- Lift r.n < e.e_n
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 1, 10)
+(ER, 3, 12)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,10,0]/(10,UP,5.5)
+(ER,3,12)/(3,DOWN,13.5)
+(ER,1,10)/(1,DOWN,15.5)
+
+#13 Take- When open door, request different floor
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 5, 2)
+(ER, 6, 3)
+(ER, 7, 4)
+(ER, 8, 5)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,5,2]/(5,UP,3.0)
+[ER,6,3]/(6,UP,4.5)
+[ER,7,4]/(7,UP,6.0)
+[ER,7,4]/(8,UP,7.5)
+[ER,10,0]/(10,UP,9.5)
+
+#14 All take
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 7, 2)
+(FR, 6, UP, 3)
+(ER, 6, 3)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[FR,6,UP,3]/(6,UP,3.5)
+[ER,6,3]/(6,UP,3.5)
+[ER,7,2]/(7,UP,5.0)
+[ER,10,0]/(10,UP,7.5)
+
+#15 Take and level up to main cmd
+(FR, 1, UP, 0)
+(ER, 6, 0)
+(ER, 10, 2)
+(FR, 8, UP, 2)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,6,0]/(6,UP,3.5)
+[FR,8,UP,2]/(8,UP,5.5)
+[ER,10,2]/(10,UP,7.5)
+
+#16 No Take and change main cmd
+(FR, 1, UP, 0)
+(ER, 6, 0)
+(FR, 5, DOWN, 2)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,6,0]/(6,UP,3.5)
+[FR,5,DOWN,2]/(5,DOWN,5.0)
+
+#17 Take cmd's time == Main cmd's time
+(FR, 1, UP, 0)
+(ER, 10, 0)
+(ER, 6, 0)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,6,0]/(6,UP,3.5)
+[ER,10,0]/(10,UP,6.5)
+
+#18 Take cmd's time == Main cmd's will open door time
+(FR, 1, UP, 0)
+(ER, 5, 0)
+(FR, 5, UP, 3)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,5,0]/(5,UP,3.0)
+[FR,5,UP,3]/(5,STILL,5.0)
+
+#19 Take cmd's time == Main cmd's have opened door time
+(FR, 1, UP, 0)
+(ER, 6, 0)
+(FR, 6, UP, 4)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,6,0]/(6,UP,3.5)
+[FR,6,UP,3.5]/(6,STILL,5.5)
+
+#20 Take cmd's time == Main cmd's have closed door time
+(FR, 1, UP, 0)
+(ER, 5, 0)
+(FR, 5, UP, 4)
+RUN
+[FR,1,UP,0]/(1,STILL,1.0)
+[ER,5,0]/(5,UP,3.0)
+[FR,5,UP,4]/(5,STILL,5.0)
